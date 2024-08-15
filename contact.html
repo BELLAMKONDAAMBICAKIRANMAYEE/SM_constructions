@@ -169,23 +169,24 @@
                             </div>
                         </div>
                         <div class="col-md-6">
+                           
                             <div class="contact-form">
                                 <div id="success"></div>
-                                <form name="sentMessage" id="contactForm" action="https://docs.google.com/spreadsheets/d/1FkLl7rpgW6wSwCF9fTL3ihnkpVD6HzQWtpm4IpBlNxY/edit?usp=sharing" method="POST">
+                                <form name="sentMessage" id="contactForm">
                                     <div class="control-group">
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required="required" />
                                         <p class="help-block text-danger"></p>
                                     </div>
                                     <div class="control-group">
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required="required" />
                                         <p class="help-block text-danger"></p>
                                     </div>
                                     <div class="control-group">
-                                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
+                                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required="required" />
                                         <p class="help-block text-danger"></p>
                                     </div>
                                     <div class="control-group">
-                                        <textarea class="form-control" id="message" name="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                        <textarea class="form-control" id="message" name="message" placeholder="Message" required="required"></textarea>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                     <div>
@@ -193,6 +194,29 @@
                                     </div>
                                 </form>
                             </div>
+                            
+                            <script>
+                            document.getElementById('contactForm').addEventListener('submit', function(event) {
+                                event.preventDefault(); // Prevent the form from submitting in the traditional way
+                            
+                                var formData = new FormData(this);
+                            
+                                fetch('https://script.google.com/macros/s/AKfycbyuPpWKtYflgP764krdvqKXj_nUGmbZgDGjuWcDVX1RGFPT3IwqzfgOUtvL49RPPWzg/exec', {
+                                    method: 'POST',
+                                    body: formData,
+                                })
+                                .then(response => response.text())
+                                .then(data => {
+                                    document.getElementById('success').innerText = data; // Display success message
+                                })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                    document.getElementById('success').innerText = 'There was an error submitting the form.';
+                                });
+                            });
+                            </script>
+                            
+                                                        
                         </div>
                         
                     </div>
