@@ -201,7 +201,7 @@
                             
                                 var formData = new FormData(this);
                             
-                                fetch('https://script.google.com/macros/s/AKfycbyuPpWKtYflgP764krdvqKXj_nUGmbZgDGjuWcDVX1RGFPT3IwqzfgOUtvL49RPPWzg/exec', {
+                                fetch('https://script.google.com/macros/s/AKfycbx5JDnmNZHFBw3OB4v07fg0xKMFCylO6KqCQEGdnSbQ07sEH-o4TxD0pbQbrHPHtr_o/exec', {
                                     method: 'POST',
                                     body: formData,
                                 })
@@ -223,20 +223,7 @@
                     
                 </div>
             </div>
-            <script>
-                function doPost(e) {
-    var sheet = SpreadsheetApp.openById("1FkLl7rpgW6wSwCF9fTL3ihnkpVD6HzQWtpm4IpBlNxY").getActiveSheet();
-    var rowData = [
-        e.parameter.name,
-        e.parameter.email,
-        e.parameter.subject,
-        e.parameter.message
-    ];
-    sheet.appendRow(rowData);
-    return ContentService.createTextOutput("Success");
-}
-
-                </script>
+           
             <div class="col-12" style="padding: 0%;margin-bottom: -4.2%;">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903160.0543151596!2d79.37697176451518!3d17.185783267738103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a395bc318d3de2f%3A0x9a2095b7129aa271!2s242%2C%201%2C%20Carpenters%20Colony%2C%20Srinivasa%20Nagar%2C%20Madhurawada%2C%20Visakhapatnam%2C%20Andhra%20Pradesh%20530048!5e0!3m2!1sen!2sin!4v1723610415414!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
